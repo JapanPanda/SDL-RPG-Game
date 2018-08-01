@@ -13,7 +13,9 @@ Game::Game() {
 	else {
 		this->window = SDL_CreateWindow("SDL Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
 		this->renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED );
-		player = TextureManager::LoadTexture("assets/player.png", renderer);
+
+		// May have to change this depending on your project layout
+		player = TextureManager::LoadTexture("SDL-RPG-Game/assets/player.png", renderer);
 		this->isRunning = true;
 	}
 }
