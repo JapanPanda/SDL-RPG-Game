@@ -3,3 +3,4 @@ Block Name - SDL-RPG-Game/ <-- put directory here - increment the IDs
 
 Stone - SDL-RPG-Game/assets/blocks/stone.png - 00
 Dirt - SDL-RPG-Game/assets/blocks/dirt.png - 01
+Grass - SDL-RPG-Game/assets/blocks/grass.png - 02
