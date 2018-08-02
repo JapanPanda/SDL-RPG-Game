@@ -3,4 +3,15 @@ Block Name - SDL-RPG-Game/ <-- put directory here - increment the IDs
 
 Stone - SDL-RPG-Game/assets/blocks/stone.png - 00
 Dirt - SDL-RPG-Game/assets/blocks/dirt.png - 01
-Grass - SDL-RPG-Game/assets/blocks/grass.png - 02
+Grass - SDL-RPG-Game/assets/blocks/dirt.png - 02
+
+Goblin - SDL-RPG-Game/assets/npc/goblin.png - 01
+Wizard - SDL-RPG-Game/assets/npc/wizard-npc.png - 02
+
+Tree - SDL-RPG-Game/assets/tree/completetree.png - 01
+Stump - SDL-RPG-Game/assets/tree/stump.png - 02
+Stump 2 - SDL-RPG-Game/assets/tree/tree-stump-dark.png - 03
+Bottom of Tree - SDL-RPG-Game/assets/tree/tree1.png - 04
+Top of Tree - SDL-RPG-Game/assets/tree/tree2.png - 05
+Left of Tree - SDL-RPG-Game/assets/tree/treeleft.png - 06
+Right of Tree - SDL-RPG-Game/assets/tree/treeright.png - 07
