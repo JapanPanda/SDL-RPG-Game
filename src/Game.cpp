@@ -53,6 +53,7 @@ void Game::updateGame() {
 
 void Game::renderGame() {
 	SDL_RenderClear(this->renderer);
+	tilemap->drawMap();
 	player->render();
 	SDL_RenderPresent(this->renderer);
 

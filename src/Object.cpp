@@ -2,7 +2,7 @@
 #include "TextureManager.h"
 
 Object::Object(const char* filePath) {
-	this->texture = TextureManager::LoadTexture(filePath);
+	this->texture = TextureManager::loadTexture(filePath);
 }
 
 Object::~Object() {

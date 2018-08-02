@@ -16,7 +16,7 @@ Player::~Player() {
 
 void Player::update() {
 
-	std::cout << "Updating player to position" << position.x << " x " << position.y << std::endl;
+	/*std::cout << "Updating player to position" << position.x << " x " << position.y << std::endl;*/
 
 }
 
