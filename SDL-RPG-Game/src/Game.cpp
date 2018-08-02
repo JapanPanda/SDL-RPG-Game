@@ -11,8 +11,8 @@ Tilemap *tilemap;
 SDL_Renderer *Game::renderer = nullptr;
 
 // DEVELOPMENT OPTIONS FOR WINDOW RESOLUTIONS
-const int windowWidth = 800;
-const int windowHeight = 640;
+const int windowWidth = 1024;
+const int windowHeight = 576;
 
 
 Game::Game() {

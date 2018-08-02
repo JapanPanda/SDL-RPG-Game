@@ -5,8 +5,9 @@ Tilemap::Tilemap(const char* filePath) {
 	position = { 0, 0, 32, 32 };
 
 	// for now, file path = SDL-RPG-Game/Levels/start.lvl
-	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/dirt.png");
-	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/stone.png");
+	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt.png");
+	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone.png");
+	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass.png");
 
 	std::ifstream reader(filePath);
 	if (!reader.is_open()) {
@@ -42,8 +43,11 @@ void Tilemap::drawMap() {
 				TextureManager::drawTexture(dirt, this->position);
 				/*std::cout << "Drawing dirt at " << this->position.x << " " << this->position.y << std::endl;*/
 			}
+			else if (type == 2) {
+				TextureManager::drawTexture(grass, this->position);
+			}
 			else {
-				std::cout << "Invalid type of tile: " << type << "at index " << i << " by " << j << std::endl;
+				std::cout << "Invalid type of tile: " << type << " at index " << i << " by " << j << std::endl;
 			}
 		}
 	}

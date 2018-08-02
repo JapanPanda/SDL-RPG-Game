@@ -18,6 +18,7 @@ private:
 	SDL_Rect position;
 	SDL_Texture* dirt;
 	SDL_Texture* stone;
+	SDL_Texture* grass;
 
 };
 

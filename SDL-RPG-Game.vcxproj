@@ -33,6 +33,9 @@
     <ClInclude Include="SDL-RPG-Game\src\TextureManager.h" />
     <ClInclude Include="SDL-RPG-Game\src\Tilemap.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SDL-RPG-Game\maps\start.lvl" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{03B65D56-E630-4AB0-ACA9-A4B610A087D6}</ProjectGuid>

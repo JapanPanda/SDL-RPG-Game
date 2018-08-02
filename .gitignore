@@ -328,3 +328,9 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/libjpeg-9.dll
+/libpng16-16.dll
+/libtiff-5.dll
+/libwebp-7.dll
+/SDL2_image.dll
+/zlib1.dll

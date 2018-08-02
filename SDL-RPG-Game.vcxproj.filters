@@ -51,4 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SDL-RPG-Game\maps\start.lvl">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
