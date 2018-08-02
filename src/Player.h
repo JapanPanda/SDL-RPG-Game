@@ -7,7 +7,7 @@
 // Player class derived from Object.h
 class Player : public Object {
 public:
-	Player(const char* filePath, SDL_Renderer *renderer);
+	Player(const char* filePath);
 	virtual void update();
 	~Player();
 private:

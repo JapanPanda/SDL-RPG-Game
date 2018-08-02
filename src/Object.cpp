@@ -1,9 +1,8 @@
 #include "Object.h"
 #include "TextureManager.h"
 
-Object::Object(const char* filePath, SDL_Renderer* renderer) {
-	this->renderer = renderer;
-	this->texture = TextureManager::LoadTexture(filePath, this->renderer);
+Object::Object(const char* filePath) {
+	this->texture = TextureManager::LoadTexture(filePath);
 }
 
 Object::~Object() {
@@ -11,6 +10,6 @@ Object::~Object() {
 }
 
 void Object::render() {
-	SDL_RenderCopy(renderer, this->texture, NULL, &this->position);
+	SDL_RenderCopy(Game::renderer, this->texture, NULL, &this->position);
 }
 

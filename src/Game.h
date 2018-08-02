@@ -11,9 +11,9 @@ public:
 	void renderGame();
 	bool getRunning() { return this->isRunning; }
 	bool setRunning(bool running) { this->isRunning = running; }
+	static SDL_Renderer *renderer;
 private:
 	bool isRunning;
 	SDL_Window *window;
-	SDL_Renderer *renderer;
 };
 

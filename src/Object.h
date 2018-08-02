@@ -6,14 +6,13 @@
 // Base class for all game objects
 class Object {
 public:
-	Object(const char* filePath, SDL_Renderer* renderer);
+	Object(const char* filePath);
 	virtual void update() = 0;
 	void render();
 	~Object();
 protected:
 	SDL_Rect position;
 	SDL_Rect cropRect;
-	SDL_Renderer *renderer;
 	SDL_Texture *texture;
 };
 

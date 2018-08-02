@@ -1,7 +1,7 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(const char * filePath, SDL_Renderer * renderer) : Object(filePath, renderer), hp(100), mana(100) {
+Player::Player(const char * filePath) : Object(filePath), hp(100), mana(100) {
 	// Create position at center of screen
 	this->position.x = (800 / 2) - (16);
 	this->position.y = (600 / 2) - (16);
