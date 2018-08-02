@@ -5,13 +5,13 @@ Stone - SDL-RPG-Game/assets/blocks/stone.png - 00
 Dirt - SDL-RPG-Game/assets/blocks/dirt.png - 01
 Grass - SDL-RPG-Game/assets/blocks/dirt.png - 02
 
-Goblin - SDL-RPG-Game/assets/npc/goblin.png - 00
-Wizard - SDL-RPG-Game/assets/npc/wizard-npc.png - 01
+Goblin - SDL-RPG-Game/assets/npc/goblin.png - 03
+Wizard - SDL-RPG-Game/assets/npc/wizard-npc.png - 04
 
-Tree - SDL-RPG-Game/assets/tree/completetree.png - 00
-Stump - SDL-RPG-Game/assets/tree/stump.png - 01
-Stump 2 - SDL-RPG-Game/assets/tree/tree-stump-dark.png - 02
-Bottom of Tree - SDL-RPG-Game/assets/tree/tree1.png - 03
-Top of Tree - SDL-RPG-Game/assets/tree/tree2.png - 04
-Left of Tree - SDL-RPG-Game/assets/tree/treeleft.png - 05
-Right of Tree - SDL-RPG-Game/assets/tree/treeright.png - 06
+Tree - SDL-RPG-Game/assets/tree/completetree.png - 05
+Stump - SDL-RPG-Game/assets/tree/stump.png - 06
+Stump 2 - SDL-RPG-Game/assets/tree/tree-stump-dark.png - 07
+Bottom of Tree - SDL-RPG-Game/assets/tree/tree1.png - 08
+Top of Tree - SDL-RPG-Game/assets/tree/tree2.png - 09
+Left of Tree - SDL-RPG-Game/assets/tree/treeleft.png - 10
+Right of Tree - SDL-RPG-Game/assets/tree/treeright.png - 11
