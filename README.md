@@ -6,6 +6,7 @@ Currently working on
 
 How to compile
 Install SDL (google it, it depends on your IDE and Operating System)
+
 If windows, make sure you move the .dlls to the proper spot
 
 If linux, good luck making a cmake for SDL
