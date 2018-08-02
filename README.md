@@ -3,6 +3,7 @@ SDL Game
 
 # Contributors
 Developers - JapanPanda
+
 Artists - aechu bha3 XRayXD
 
 # Currently working on
