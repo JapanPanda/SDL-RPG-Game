@@ -21,5 +21,13 @@ private:
 	SDL_Texture* stone;
 	SDL_Texture* grass;
 	SDL_Texture* stump;
+	SDL_Texture* dirt_to_grass_top;
+	SDL_Texture* dirt_to_grass_right;
+	SDL_Texture* dirt_to_grass_down;
+	SDL_Texture* dirt_to_grass_left;
+	SDL_Texture* dirt_to_grass_top_left;
+	SDL_Texture* dirt_to_grass_top_right;
+	SDL_Texture* dirt_to_grass_down_right;
+	SDL_Texture* dirt_to_grass_down_left;
 };
 

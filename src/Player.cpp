@@ -6,10 +6,10 @@
 Player::Player(const char * filePath) : Entity(filePath), sprite(texture, 2), hp(100), mana(100) {
 
 	// Create position at center of screen
-	this->position.x = (1024 / 2) - (32);
-	this->position.y = (576 / 2) - (32);
-	this->position.w = 32;
-	this->position.h = 32;
+	this->position.x = (1024 / 2) - (48);
+	this->position.y = (576 / 2) - (48);
+	this->position.w = 48;
+	this->position.h = 48;
 	std::cout << "Created player" << std::endl;
 }
 
@@ -28,7 +28,7 @@ void Player::render() {
 	this->sprite.animateSprite(this->position);
 }
 
-const int XVEL_ = 32, YVEL_ = 32;
+const int XVEL_ = 16, YVEL_ = 16;
 
 void Player::move(Directions direction) {
 	switch (direction) {

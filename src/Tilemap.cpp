@@ -2,13 +2,21 @@
 #include "TextureManager.h"
 
 Tilemap::Tilemap(const char* filePath) {
-	position = { 0, 0, 32, 32 };
+	position = { 0, 0, 48, 48 };
 
 	// for now, file path = SDL-RPG-Game/Levels/start.lvl
-	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt.png");
-	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone.png");
-	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass.png");
+	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt.png");
+	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone/stone.png");
+	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass/grass.png");
 	this->stump = TextureManager::loadTexture("SDL-RPG-Game/assets/tree/stump.png");
+	this->dirt_to_grass_top = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top.png");
+	this->dirt_to_grass_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_right.png");
+	this->dirt_to_grass_down = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down.png");
+	this->dirt_to_grass_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_left.png");
+	this->dirt_to_grass_top_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_left.png");
+	this->dirt_to_grass_top_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_right.png");
+	this->dirt_to_grass_down_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_right.png");
+	this->dirt_to_grass_down_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_left.png");
 
 	std::ifstream reader(filePath);
 	if (!reader.is_open()) {
@@ -33,8 +41,8 @@ Tilemap::Tilemap(const char* filePath) {
 void Tilemap::drawMap() {
 	for (int i = 0; i < this->height; i++) {
 		for (int j = 0; j < this->width; j++) {
-			this->position.y = 32 * i;
-			this->position.x = 32 * j;
+			this->position.y = 48 * i;
+			this->position.x = 48 * j;
 			int type = this->tilemap[i][j];
 			if (type == 0) {
 				TextureManager::drawTexture(stone, this->position);
@@ -49,6 +57,30 @@ void Tilemap::drawMap() {
 			}
 			else if (type == 6) {
 				TextureManager::drawTexture(stump, this->position);
+			}
+			else if (type == 12) {
+				TextureManager::drawTexture(dirt_to_grass_top, this->position);
+			}
+			else if (type == 13) {
+				TextureManager::drawTexture(dirt_to_grass_right, this->position);
+			}
+			else if (type == 14) {
+				TextureManager::drawTexture(dirt_to_grass_down, this->position);
+			}
+			else if (type == 15) {
+				TextureManager::drawTexture(dirt_to_grass_left, this->position);
+			}
+			else if (type == 16) {
+				TextureManager::drawTexture(dirt_to_grass_top_left, this->position);
+			}
+			else if (type == 17) {
+				TextureManager::drawTexture(dirt_to_grass_top_right, this->position);
+			}
+			else if (type == 18) {
+				TextureManager::drawTexture(dirt_to_grass_down_right, this->position);
+			}
+			else if (type == 19) {
+				TextureManager::drawTexture(dirt_to_grass_down_left, this->position);
 			}
 			else {
 				std::cout << "Invalid type of tile: " << type << " at index " << i << " by " << j << std::endl;

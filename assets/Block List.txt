@@ -16,3 +16,12 @@ Bottom of Tree - SDL-RPG-Game/assets/tree/tree1.png - 08
 Top of Tree - SDL-RPG-Game/assets/tree/tree2.png - 09
 Left of Tree - SDL-RPG-Game/assets/tree/treeleft.png - 10
 Right of Tree - SDL-RPG-Game/assets/tree/treeright.png - 11
+
+Dirt_to_grass_top - SDL-RPG-Game/assets/blocks/dirt_to_grass_top.png - 12
+Dirt_to_grass_right - SDL-RPG-Game/assets/blocks/dirt_to_grass_right.png - 13
+Dirt_to_grass_down - SDL-RPG-Game/assets/blocks/dirt_to_grass_down.png - 14
+Dirt_to_grass_left - SDL-RPG-Game/assets/blocks/dirt_to_grass_left.png - 15
+Dirt_to_grass_top_left - SDL-RPG-Game/assets/blocks/dirt_to_grass_top_left.png - 16
+Dirt_to_grass_top_right - SDL-RPG-Game/assets/blocks/dirt_to_grass_top_right.png - 17
+Dirt_to_grass_down_right - SDL-RPG-Game/assets/blocks/dirt_to_grass_down_right.png - 18
+Dirt_to_grass_down_left - SDL-RPG-Game/assets/blocks/dirt_to_grass_down_left.png - 19
