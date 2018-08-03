@@ -16,9 +16,7 @@ Sprite::~Sprite() {
 }
 
 void Sprite::animateSprite(SDL_Rect position) {
-	TextureManager::drawTexture(this->spriteSheet, this->sprites[currentFrame / 8], position);
-	this->currentFrame++;
-	if (currentFrame / 8 >= ANIMATION_FRAMES) {
-		this->currentFrame = 0;
-	}
+	this->currentFrame = (SDL_GetTicks() / 500) % ANIMATION_FRAMES;
+	TextureManager::drawTexture(this->spriteSheet, this->sprites[currentFrame], position);
+	// std::cout << currentFrame << std::endl;
 }
