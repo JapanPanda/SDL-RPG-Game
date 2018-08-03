@@ -27,7 +27,7 @@ Game::Game() {
 
 		// May have to change this depending on your project layout
 		player = new Player("SDL-RPG-Game/assets/playerspritesheet.png");
-		tilemap = new Tilemap("SDL-RPG-Game/maps/start.lvl");
+		tilemap = new Tilemap("SDL-RPG-Game/maps/test.lvl");
 		this->isRunning = true;
 	}
 }

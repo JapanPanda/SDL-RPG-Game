@@ -20,6 +20,6 @@ private:
 	SDL_Texture* dirt;
 	SDL_Texture* stone;
 	SDL_Texture* grass;
-
+	SDL_Texture* stump;
 };
 
