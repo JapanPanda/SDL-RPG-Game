@@ -8,7 +8,6 @@ Artists - aechu bha3 XRayXD
 
 # Currently working on
 - Transitioning levels
-- Time-based movement
 
 # How to compile
 Install SDL (google it, it depends on your IDE and Operating System)
