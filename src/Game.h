@@ -8,7 +8,7 @@ public:
 	~Game();
 	void processEvents();
 	void updateGame();
-	void renderGame();
+	static void renderGame();
 	bool getRunning() { return this->isRunning; }
 	bool setRunning(bool running) { this->isRunning = running; }
 	static SDL_Renderer *renderer;
