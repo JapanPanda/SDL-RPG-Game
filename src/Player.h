@@ -5,12 +5,15 @@
 #include "Entity.h"
 #include "Sprite.h"
 
+class Game;
+
 enum Directions {
-	Up, Down, Left, Right, DiagonalLU, DiagonalLD, DiagonalRU, DiagonalRD, Stop
+	Up, Down, Left, Right, Stop
 };
 
 // Player class derived from Object.h
 class Player : public Entity {
+	friend Game;
 public:
 	Player(const char* filePath);
 	virtual void update();
@@ -18,8 +21,12 @@ public:
 	void move(Directions direction);
 	void handleInput();
 	~Player();
+	bool isMoving;
+	Directions movingDirection;
 private:
 	int hp;
 	int mana;
 	Sprite sprite;
+	int destX;
+	int destY;
 };

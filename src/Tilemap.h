@@ -29,5 +29,6 @@ private:
 	SDL_Texture* dirt_to_grass_top_right;
 	SDL_Texture* dirt_to_grass_down_right;
 	SDL_Texture* dirt_to_grass_down_left;
+	SDL_Texture* hitbox;
 };
 
