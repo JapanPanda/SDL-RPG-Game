@@ -2,12 +2,13 @@
 #include "TextureManager.h"
 
 Tilemap::Tilemap(const char* filePath) {
-	position = { 0, 0, 32, 32 };
+	position = { 0, 0, 48, 48 };
 
 	// for now, file path = SDL-RPG-Game/Levels/start.lvl
 	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt.png");
 	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone.png");
 	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass.png");
+	this->hitbox = TextureManager::loadTexture("SDL-RPG-Game/assets/hitbox.png");
 
 	std::ifstream reader(filePath);
 	if (!reader.is_open()) {
@@ -32,8 +33,8 @@ Tilemap::Tilemap(const char* filePath) {
 void Tilemap::drawMap() {
 	for (int i = 0; i < this->height; i++) {
 		for (int j = 0; j < this->width; j++) {
-			this->position.y = 32 * i;
-			this->position.x = 32 * j;
+			this->position.y = 48 * i;
+			this->position.x = 48 * j;
 			int type = this->tilemap[i][j];
 			if (type == 0) {
 				TextureManager::drawTexture(stone, this->position);
@@ -45,6 +46,9 @@ void Tilemap::drawMap() {
 			}
 			else if (type == 2) {
 				TextureManager::drawTexture(grass, this->position);
+			}
+			else if (type == 99) {
+				TextureManager::drawTexture(hitbox, this->position);
 			}
 			else {
 				std::cout << "Invalid type of tile: " << type << " at index " << i << " by " << j << std::endl;

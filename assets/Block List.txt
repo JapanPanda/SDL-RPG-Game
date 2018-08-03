@@ -16,3 +16,6 @@ Bottom of Tree - SDL-RPG-Game/assets/tree/tree1.png - 08
 Top of Tree - SDL-RPG-Game/assets/tree/tree2.png - 09
 Left of Tree - SDL-RPG-Game/assets/tree/treeleft.png - 10
 Right of Tree - SDL-RPG-Game/assets/tree/treeright.png - 11
+
+
+Hitbox - SDL-RPG-Game/assets/hitbox.png - 99

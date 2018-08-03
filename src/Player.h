@@ -6,7 +6,7 @@
 #include "Sprite.h"
 
 enum Directions {
-	Up, Down, Left, Right, DiagonalLU, DiagonalLD, DiagonalRU, DiagonalRD, Stop
+	Up, Down, Left, Right, Stop
 };
 
 // Player class derived from Object.h
@@ -18,6 +18,7 @@ public:
 	void move(Directions direction);
 	void handleInput();
 	~Player();
+	bool isMoving;
 private:
 	int hp;
 	int mana;
