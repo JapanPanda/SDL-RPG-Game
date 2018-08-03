@@ -4,12 +4,13 @@
 #include "SDL_image.h"
 
 // Base class for all game objects
-class Object {
+class Entity {
 public:
-	Object(const char* filePath);
+	Entity(const char* filePath);
 	virtual void update() = 0;
-	void render();
-	~Object();
+	virtual void render();
+	SDL_Rect& returnPosition() { return this->position; }
+	~Entity();
 protected:
 	SDL_Rect position;
 	SDL_Rect cropRect;

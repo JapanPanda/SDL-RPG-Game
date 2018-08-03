@@ -24,7 +24,7 @@ Tilemap::Tilemap(const char* filePath) {
 			reader >> type;
 			currentRow.push_back(type);
 		}
-		this->level.push_back(currentRow);
+		this->tilemap.push_back(currentRow);
 	}
 	reader.close();
 }
@@ -34,7 +34,7 @@ void Tilemap::drawMap() {
 		for (int j = 0; j < this->width; j++) {
 			this->position.y = 32 * i;
 			this->position.x = 32 * j;
-			int type = this->level[i][j];
+			int type = this->tilemap[i][j];
 			if (type == 0) {
 				TextureManager::drawTexture(stone, this->position);
 				/*std::cout << "Drawing stone at " << this->position.x << " " << this->position.y << std::endl;*/
@@ -54,5 +54,7 @@ void Tilemap::drawMap() {
 }
 
 Tilemap::~Tilemap() {
-
+	SDL_DestroyTexture(this->dirt);
+	SDL_DestroyTexture(this->grass);
+	SDL_DestroyTexture(this->stone);
 }

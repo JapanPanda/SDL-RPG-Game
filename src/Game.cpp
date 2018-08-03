@@ -8,6 +8,7 @@
 
 Player *player;
 Tilemap *tilemap;
+SDL_Event Game::event;
 SDL_Renderer *Game::renderer = nullptr;
 
 // DEVELOPMENT OPTIONS FOR WINDOW RESOLUTIONS
@@ -25,7 +26,7 @@ Game::Game() {
 		this->renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED );
 
 		// May have to change this depending on your project layout
-		player = new Player("SDL-RPG-Game/assets/player.png");
+		player = new Player("SDL-RPG-Game/assets/playerspritesheet.png");
 		tilemap = new Tilemap("SDL-RPG-Game/maps/start.lvl");
 		this->isRunning = true;
 	}
@@ -40,11 +41,14 @@ Game::~Game() {
 }
 
 void Game::processEvents() {
-	SDL_Event event;
 	SDL_PollEvent(&event);
 	if (event.type == SDL_QUIT) {
 		isRunning = false;
 	}
+
+	// Handle input
+	player->handleInput();
+	
 }
 
 void Game::updateGame() {

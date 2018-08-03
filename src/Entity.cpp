@@ -1,15 +1,14 @@
-#include "Object.h"
+#include "Entity.h"
 #include "TextureManager.h"
 
-Object::Object(const char* filePath) {
+Entity::Entity(const char* filePath) {
 	this->texture = TextureManager::loadTexture(filePath);
 }
 
-Object::~Object() {
+Entity::~Entity() {
 	SDL_DestroyTexture(this->texture);
 }
 
-void Object::render() {
+void Entity::render() {
 	SDL_RenderCopy(Game::renderer, this->texture, NULL, &this->position);
 }
-

@@ -6,6 +6,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+
 class Tilemap {
 public:
 	Tilemap(const char* filePath);
@@ -14,7 +15,7 @@ public:
 private:
 	int width;
 	int height;
-	std::vector<std::vector<int>> level;
+	std::vector<std::vector<int>> tilemap;
 	SDL_Rect position;
 	SDL_Texture* dirt;
 	SDL_Texture* stone;
