@@ -5,6 +5,8 @@ Stone - SDL-RPG-Game/assets/blocks/stone.png - 00
 Dirt - SDL-RPG-Game/assets/blocks/dirt.png - 01
 Grass - SDL-RPG-Game/assets/blocks/dirt.png - 02
 Water - SDL-RPG-Game/assets/blocks/water.png - 03
+Wood - SDL-RPG-Game/assets/blocks/wood.png - 04
+Sand - SDL-RPG-Game/assets/blocks/sand.png - 05
 
 Goblin - SDL-RPG-Game/assets/npc/goblin.png - 03
 Wizard - SDL-RPG-Game/assets/npc/wizard-npc.png - 04
