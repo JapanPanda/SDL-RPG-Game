@@ -8,7 +8,7 @@ Player::Player(const char * filePath) : Entity(filePath), isMoving(false), sprit
 
 	// Create position at center of screen
 
-	this->position.x = 480;
+	this->position.x = 480 - 16;
 	this->position.y = 240 - 10;
 	this->position.w = 48;
 	this->position.h = 48;
@@ -59,7 +59,7 @@ void Player::move(Directions direction) {
 
 	int XVEL_ = 4, YVEL_ = 4;
 
-	if (this->destX + 10 < 0 || this->destY < 0 || this->destX > 1024 - this->position.w || this->destY > 576 - this->position.h) {
+	if (this->destX + 16 < 0 || this->destY + 10 < 0 || this->destX - 16 > 1024 - this->position.w || this->destY > 576 - this->position.h) {
 		isMoving = false;
 		return;
 	}
