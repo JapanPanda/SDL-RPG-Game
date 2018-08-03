@@ -5,9 +5,18 @@ Tilemap::Tilemap(const char* filePath) {
 	position = { -16, 0, 48, 48 };
 
 	// for now, file path = SDL-RPG-Game/Levels/start.lvl
-	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt.png");
-	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone.png");
-	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass.png");
+	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt.png");
+	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone/stone.png");
+	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass/grass.png");
+	this->stump = TextureManager::loadTexture("SDL-RPG-Game/assets/tree/stump.png");
+	this->dirt_to_grass_top = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top.png");
+	this->dirt_to_grass_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_right.png");
+	this->dirt_to_grass_down = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down.png");
+	this->dirt_to_grass_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_left.png");
+	this->dirt_to_grass_top_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_left.png");
+	this->dirt_to_grass_top_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_right.png");
+	this->dirt_to_grass_down_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_right.png");
+	this->dirt_to_grass_down_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_left.png");
 	this->hitbox = TextureManager::loadTexture("SDL-RPG-Game/assets/hitbox.png");
 
 	std::ifstream reader(filePath);
@@ -47,6 +56,33 @@ void Tilemap::drawMap() {
 			else if (type == 2) {
 				TextureManager::drawTexture(grass, this->position);
 			}
+			else if (type == 6) {
+				TextureManager::drawTexture(stump, this->position);
+			}
+			else if (type == 12) {
+				TextureManager::drawTexture(dirt_to_grass_top, this->position);
+			}
+			else if (type == 13) {
+				TextureManager::drawTexture(dirt_to_grass_right, this->position);
+			}
+			else if (type == 14) {
+				TextureManager::drawTexture(dirt_to_grass_down, this->position);
+			}
+			else if (type == 15) {
+				TextureManager::drawTexture(dirt_to_grass_left, this->position);
+			}
+			else if (type == 16) {
+				TextureManager::drawTexture(dirt_to_grass_top_left, this->position);
+			}
+			else if (type == 17) {
+				TextureManager::drawTexture(dirt_to_grass_top_right, this->position);
+			}
+			else if (type == 18) {
+				TextureManager::drawTexture(dirt_to_grass_down_right, this->position);
+			}
+			else if (type == 19) {
+				TextureManager::drawTexture(dirt_to_grass_down_left, this->position);
+      }
 			else if (type == 99) {
 				TextureManager::drawTexture(hitbox, this->position);
 			}

@@ -7,6 +7,7 @@
 Player::Player(const char * filePath) : Entity(filePath), isMoving(false), sprite(texture, 2), hp(100), mana(100), destX(0), destY(0), movingDirection(Stop) {
 
 	// Create position at center of screen
+
 	this->position.x = 480;
 	this->position.y = 240 - 10;
 	this->position.w = 48;
