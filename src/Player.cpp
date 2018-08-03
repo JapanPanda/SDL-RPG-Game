@@ -8,7 +8,7 @@ Player::Player(const char * filePath) : Entity(filePath), isMoving(false), sprit
 
 	// Create position at center of screen
 	this->position.x = 480;
-	this->position.y = 240 - 20;
+	this->position.y = 240 - 10;
 	this->position.w = 48;
 	this->position.h = 48;
 	std::cout << "Created player" << std::endl;
@@ -52,11 +52,14 @@ void Player::render() {
 	this->sprite.animateSprite(this->position);
 }
 
-const int XVEL_ = 4, YVEL_ = 4;
+
 
 void Player::move(Directions direction) {
-	if (this->destX < 0 || this->destY < 0 || this->destX > 1024 - this->position.w || this->destY > 576 - this->position.h) {
-		std::cout << "Player tried to do an illegal move"  << destX << " : " << destY << std::endl;
+
+	int XVEL_ = 4, YVEL_ = 4;
+
+	if (this->destX + 10 < 0 || this->destY < 0 || this->destX > 1024 - this->position.w || this->destY > 576 - this->position.h) {
+		isMoving = false;
 		return;
 	}
 	isMoving = true;

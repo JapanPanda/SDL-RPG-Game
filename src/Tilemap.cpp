@@ -2,7 +2,7 @@
 #include "TextureManager.h"
 
 Tilemap::Tilemap(const char* filePath) {
-	position = { 0, 0, 48, 48 };
+	position = { -16, 0, 48, 48 };
 
 	// for now, file path = SDL-RPG-Game/Levels/start.lvl
 	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt.png");
@@ -34,7 +34,7 @@ void Tilemap::drawMap() {
 	for (int i = 0; i < this->height; i++) {
 		for (int j = 0; j < this->width; j++) {
 			this->position.y = 48 * i;
-			this->position.x = 48 * j;
+			this->position.x = 48 * j - 16;
 			int type = this->tilemap[i][j];
 			if (type == 0) {
 				TextureManager::drawTexture(stone, this->position);
