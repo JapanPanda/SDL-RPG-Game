@@ -18,6 +18,7 @@ Tilemap::Tilemap(const char* filePath) {
 	this->dirt_to_grass_down_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_right.png");
 	this->dirt_to_grass_down_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_left.png");
 	this->hitbox = TextureManager::loadTexture("SDL-RPG-Game/assets/hitbox.png");
+	this->volcano = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone/volcano.gif");
 
 	std::ifstream reader(filePath);
 	if (!reader.is_open()) {
@@ -82,7 +83,10 @@ void Tilemap::drawMap() {
 			}
 			else if (type == 19) {
 				TextureManager::drawTexture(dirt_to_grass_down_left, this->position);
-      }
+			}
+			else if (type == 20) {
+				TextureManager::drawTexture(volcano, this->position);
+			}
 			else if (type == 99) {
 				TextureManager::drawTexture(hitbox, this->position);
 			}
