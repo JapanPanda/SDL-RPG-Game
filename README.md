@@ -7,12 +7,12 @@ Developers - JapanPanda
 Artists - aechu bha3 XRayXD
 
 # Currently working on
-- Tilemaps
+- Transitioning levels
 
 # How to compile
 Install SDL (google it, it depends on your IDE and Operating System)
 
-If windows, make sure you move the .dlls to the proper spot
+If windows, make sure you move the .dlls to the directory with the .sln
 
 If linux, good luck making a cmake for SDL
 

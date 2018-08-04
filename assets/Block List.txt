@@ -5,6 +5,8 @@ Stone - SDL-RPG-Game/assets/blocks/stone.png - 00
 Dirt - SDL-RPG-Game/assets/blocks/dirt.png - 01
 Grass - SDL-RPG-Game/assets/blocks/dirt.png - 02
 Water - SDL-RPG-Game/assets/blocks/water.png - 03
+Wood - SDL-RPG-Game/assets/blocks/wood.png - 04
+Sand - SDL-RPG-Game/assets/blocks/sand.png - 05
 
 Goblin - SDL-RPG-Game/assets/npc/goblin.png - 03
 Wizard - SDL-RPG-Game/assets/npc/wizard-npc.png - 04
@@ -17,13 +19,15 @@ Top of Tree - SDL-RPG-Game/assets/tree/tree2.png - 09
 Left of Tree - SDL-RPG-Game/assets/tree/treeleft.png - 10
 Right of Tree - SDL-RPG-Game/assets/tree/treeright.png - 11
 
-Dirt_to_grass_top - SDL-RPG-Game/assets/blocks/dirt_to_grass_top.png - 12
-Dirt_to_grass_right - SDL-RPG-Game/assets/blocks/dirt_to_grass_right.png - 13
-Dirt_to_grass_down - SDL-RPG-Game/assets/blocks/dirt_to_grass_down.png - 14
-Dirt_to_grass_left - SDL-RPG-Game/assets/blocks/dirt_to_grass_left.png - 15
-Dirt_to_grass_top_left - SDL-RPG-Game/assets/blocks/dirt_to_grass_top_left.png - 16
-Dirt_to_grass_top_right - SDL-RPG-Game/assets/blocks/dirt_to_grass_top_right.png - 17
-Dirt_to_grass_down_right - SDL-RPG-Game/assets/blocks/dirt_to_grass_down_right.png - 18
-Dirt_to_grass_down_left - SDL-RPG-Game/assets/blocks/dirt_to_grass_down_left.png - 19
+Dirt_to_grass_top - SDL-RPG-Game/assets/blocks/grass/dirt_to_grass_top.png - 12
+Dirt_to_grass_right - SDL-RPG-Game/assets/blocks/grass/dirt_to_grass_right.png - 13
+Dirt_to_grass_down - SDL-RPG-Game/assets/blocks/grass/dirt_to_grass_down.png - 14
+Dirt_to_grass_left - SDL-RPG-Game/assets/blocks/grass/dirt_to_grass_left.png - 15
+Dirt_to_grass_top_left - SDL-RPG-Game/assets/blocks/grass/dirt_to_grass_top_left.png - 16
+Dirt_to_grass_top_right - SDL-RPG-Game/assets/blocks/grass/dirt_to_grass_top_right.png - 17
+Dirt_to_grass_down_right - SDL-RPG-Game/assets/blocks/grass/dirt_to_grass_down_right.png - 18
+Dirt_to_grass_down_left - SDL-RPG-Game/assets/blocks/grass/dirt_to_grass_down_left.png - 19
+
+Volcano - SDL-RPG-Game/assets/blocks/stone/volcano.gif - 20
 
 Hitbox - SDL-RPG-Game/assets/hitbox.png - 99

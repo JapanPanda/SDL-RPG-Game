@@ -48,7 +48,10 @@ void Tilemap::drawMap() {
 			}
 			else if (type == 19) {
 				TextureManager::drawTexture(dirt_to_grass_down_left, this->position);
-      }
+			}
+			else if (type == 20) {
+				TextureManager::drawTexture(volcano, this->position);
+			}
 			else if (type == 99) {
 				TextureManager::drawTexture(hitbox, this->position);
 			}
