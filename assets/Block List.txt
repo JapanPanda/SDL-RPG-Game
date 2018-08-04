@@ -1,7 +1,8 @@
 FORMAT
 Block Name - SDL-RPG-Game/ <-- put directory here - increment the IDs
 
-Stone - SDL-RPG-Game/assets/blocks/stone.png - 00
+Stone - SDL-RPG-Game/assets/blocks/stone/stone.png - 00
+Cobble - SDL-RPG-Game/SDL-RPG-Game/assets/blocks/stone/ - 21
 Dirt - SDL-RPG-Game/assets/blocks/dirt.png - 01
 Grass - SDL-RPG-Game/assets/blocks/dirt.png - 02
 Water - SDL-RPG-Game/assets/blocks/water.png - 03
@@ -26,4 +27,5 @@ Dirt_to_grass_top_right - SDL-RPG-Game/assets/blocks/dirt_to_grass_top_right.png
 Dirt_to_grass_down_right - SDL-RPG-Game/assets/blocks/dirt_to_grass_down_right.png - 18
 Dirt_to_grass_down_left - SDL-RPG-Game/assets/blocks/dirt_to_grass_down_left.png - 19
 
+Water - SDL-RPG-Game/assets/blocks/water.png - 20
 Hitbox - SDL-RPG-Game/assets/hitbox.png - 99

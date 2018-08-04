@@ -7,6 +7,7 @@ Tilemap::Tilemap(const char* filePath) {
 	// for now, file path = SDL-RPG-Game/Levels/start.lvl
 	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt.png");
 	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone/stone.png");
+	this->cobble = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone/cobble.png");
 	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass/grass.png");
 	this->stump = TextureManager::loadTexture("SDL-RPG-Game/assets/tree/stump.png");
 	this->dirt_to_grass_top = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top.png");
@@ -83,6 +84,9 @@ void Tilemap::drawMap() {
 			else if (type == 19) {
 				TextureManager::drawTexture(dirt_to_grass_down_left, this->position);
       }
+			else if (type == 21) {
+				TextureManager::drawTexture(cobble , this->position);
+			}
 			else if (type == 99) {
 				TextureManager::drawTexture(hitbox, this->position);
 			}
@@ -97,4 +101,5 @@ Tilemap::~Tilemap() {
 	SDL_DestroyTexture(this->dirt);
 	SDL_DestroyTexture(this->grass);
 	SDL_DestroyTexture(this->stone);
+	SDL_DestroyTexture(this->cobble);
 }
