@@ -7,7 +7,7 @@ Developers - JapanPanda
 Artists - aechu bha3 XRayXD
 
 # Currently working on
-- Transitioning levels
+- Properly implementing tile properties
 
 # How to compile
 Install SDL (google it, it depends on your IDE and Operating System)
