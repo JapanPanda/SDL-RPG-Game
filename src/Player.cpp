@@ -69,6 +69,32 @@ void Player::move(Directions direction) {
 	//	isMoving = false;
 	//	return;
 	//}
+	if (!Global::hasUpMap) {
+		if (this->destY + 10 < 0) {
+			isMoving = false;
+			return;
+		}
+	}
+	if (!Global::hasLeftMap) {
+		if (this->destX + 16 < 0) {
+			isMoving = false;
+			return;
+		}
+	}
+	if (!Global::hasRightMap) {
+		if (this->destX - 16 > 1024 - this->position.w) {
+			isMoving = false;
+			return;
+		}
+
+	}
+	if (!Global::hasDownMap) {
+		if (this->destY > 576 - this->position.h) {
+			isMoving = false;
+			return;
+		}
+
+	}
 
 	isMoving = true;
 	switch (direction) {
@@ -123,27 +149,27 @@ void Player::handleInput() {
 		if (keyState[SDL_SCANCODE_W]) {
 			this->destX = this->posX;
 			this->destY = this->posY - (float) 48.00;
-			std::cout << "moving to " << this->destX << " : " << this->destY << std::endl;
+			//std::cout << "moving to " << this->destX << " : " << this->destY << std::endl;
 			this->move(Up);
 		}
 		else if (keyState[SDL_SCANCODE_S]) {
 			this->destX = this->posX;
 			this->destY = this->posY + (float)48.00;
-			std::cout << "moving to " << this->destX << " : " << this->destY << std::endl;
+			//std::cout << "moving to " << this->destX << " : " << this->destY << std::endl;
 			this->move(Down);
 		}
 		else if (keyState[SDL_SCANCODE_D]) {
-			std::cout << "moving from " << this->posX << " : " << this->posY << std::endl;
+			//std::cout << "moving from " << this->posX << " : " << this->posY << std::endl;
 			this->destX = this->posX + position;
 			this->destY = this->posY;
-			std::cout << "moving to " << this->destX << " : " << this->destY << " " << position << std::endl;
+			//std::cout << "moving to " << this->destX << " : " << this->destY << " " << position << std::endl;
 			this->move(Right);
 		}
 		else if (keyState[SDL_SCANCODE_A]) {
-			std::cout << "moving from " << this->posX << " : " << this->posY << std::endl;
+			//std::cout << "moving from " << this->posX << " : " << this->posY << std::endl;
 			this->destX = this->posX - position;
 			this->destY = this->posY;
-			std::cout << "moving to " << this->destX << " : " << this->destY << " " << position << std::endl;
+			//std::cout << "moving to " << this->destX << " : " << this->destY << " " << position << std::endl;
 			this->move(Left);
 		}
 	}

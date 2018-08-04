@@ -1,5 +1,6 @@
 #include "Tilemap.h"
 #include "TextureManager.h"
+#include "Global.h"
 
 Tilemap::Tilemap(const char* filePath) {
 	this->loadMap(filePath);
@@ -91,6 +92,35 @@ void Tilemap::loadMap(const char * filePath) {
 	reader >> this->rightMap;
 	reader >> this->downMap;
 
+	if (this->upMap == "none") {
+		std::cout << "no up map" << std::endl;
+		Global::hasUpMap = false;
+	}
+	else {
+		Global::hasUpMap = true;
+	}
+	if (this->leftMap == "none") {
+		std::cout << "no left map" << std::endl;
+		Global::hasLeftMap = false;
+	}
+	else {
+		Global::hasLeftMap = true;
+	}
+	if (this->rightMap == "none") {
+		std::cout << "no right map" << std::endl;
+		Global::hasRightMap = false;
+	}
+	else {
+		Global::hasRightMap = true;
+	}
+	if (this->downMap == "none") {
+		std::cout << "no down map" << std::endl;
+		Global::hasDownMap = false;
+	}
+	else {
+		Global::hasDownMap = true;
+	}
+
 	int type;
 	int totalSize = this->height * this->width;
 	for (int i = 0; i < height; i++) {
@@ -102,6 +132,25 @@ void Tilemap::loadMap(const char * filePath) {
 		this->tilemap.push_back(currentRow);
 	}
 	reader.close();
+}
+
+std::string Tilemap::returnMap(char direction) {
+	switch (direction) {
+		case 'u':
+			return this->upMap;
+			break;
+		case 'l':
+			return this->leftMap;
+			break;
+		case 'r':
+			return this->rightMap;
+			break;
+		case 'd':
+			return this->downMap;
+			break;
+	}
+
+	return std::string();
 }
 
 Tilemap::~Tilemap() {

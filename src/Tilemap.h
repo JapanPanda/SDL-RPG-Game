@@ -13,7 +13,7 @@ public:
 	Tilemap(const char* filePath);
 	void drawMap();
 	void loadMap(const char* filePath);
-	std::string returnMap();
+	std::string returnMap(char direction);
 	~Tilemap();
 private:
 	int width;
