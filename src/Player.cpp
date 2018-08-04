@@ -31,8 +31,8 @@ void Player::update() {
 				}
 				break;
 			case Down:
-				if (this->position.y >= this->destY) {
-					this->position.y = this->destY;
+				if (this->position.y >= (int) this->destY) {
+					this->position.y = (int)this->destY;
 					isMoving = false;
 				}
 				break;
@@ -43,8 +43,8 @@ void Player::update() {
 				}
 				break;
 			case Right:
-				if (this->position.x >= this->destX) {
-					this->position.x = this->destX;
+				if (this->position.x >= (int)this->destX) {
+					this->position.x = (int)this->destX;
 					isMoving = false;
 				}
 				break;
@@ -63,12 +63,12 @@ void Player::render() {
 
 void Player::move(Directions direction) {
 
-	float XVEL_ = 300 * Global::timeElapsed, YVEL_ = 300 * Global::timeElapsed;
+	float XVEL_ = 400 * Global::timeElapsed, YVEL_ = 400 * Global::timeElapsed;
 
-	if (this->destX + 16 < 0 || this->destY + 10 < 0 || this->destX - 16 > 1024 - this->position.w || this->destY > 576 - this->position.h) {
-		isMoving = false;
-		return;
-	}
+	//if (this->destX + 16 < 0 || this->destY + 10 < 0 || this->destX - 16 > 1024 - this->position.w || this->destY > 576 - this->position.h) {
+	//	isMoving = false;
+	//	return;
+	//}
 
 	isMoving = true;
 	switch (direction) {
@@ -149,3 +149,12 @@ void Player::handleInput() {
 	}
 }
 
+void Player::syncPos() {
+	this->posX = this->position.x;
+	this->posY = this->position.y;
+}
+
+void Player::resetDest(float offsetX, float offsetY) {
+	this->destX = offsetX;
+	this->destY = offsetY;
+}

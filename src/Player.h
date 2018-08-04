@@ -20,6 +20,8 @@ public:
 	virtual void render() override;
 	void move(Directions direction);
 	void handleInput();
+	void syncPos();
+	void resetDest(float offsetX, float offsetY);
 	~Player();
 	bool isMoving;
 	Directions movingDirection;

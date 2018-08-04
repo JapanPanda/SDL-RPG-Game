@@ -11,6 +11,7 @@ class Tilemap {
 public:
 	Tilemap(const char* filePath);
 	void drawMap();
+	void loadMap(const char* filePath);
 	~Tilemap();
 private:
 	int width;
