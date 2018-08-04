@@ -49,9 +49,12 @@ void Tilemap::drawMap() {
 			}
 			else if (type == 19) {
 				TextureManager::drawTexture(dirt_to_grass_down_left, this->position);
-			}
+      }
 			else if (type == 20) {
 				TextureManager::drawTexture(volcano, this->position);
+      }
+			else if (type == 21) {
+				TextureManager::drawTexture(cobble , this->position);
 			}
 			else if (type == 99) {
 				TextureManager::drawTexture(hitbox, this->position);
@@ -158,4 +161,5 @@ Tilemap::~Tilemap() {
 	SDL_DestroyTexture(this->dirt);
 	SDL_DestroyTexture(this->grass);
 	SDL_DestroyTexture(this->stone);
+	SDL_DestroyTexture(this->cobble);
 }
