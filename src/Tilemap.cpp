@@ -86,6 +86,10 @@ void Tilemap::loadMap(const char * filePath) {
 	}
 	reader >> this->height;
 	reader >> this->width;
+	reader >> this->upMap;
+	reader >> this->leftMap;
+	reader >> this->rightMap;
+	reader >> this->downMap;
 
 	int type;
 	int totalSize = this->height * this->width;

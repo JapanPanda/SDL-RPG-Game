@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <string>
 #include <SDL.h>
 #include <SDL_image.h>
 
@@ -12,11 +13,16 @@ public:
 	Tilemap(const char* filePath);
 	void drawMap();
 	void loadMap(const char* filePath);
+	std::string returnMap();
 	~Tilemap();
 private:
 	int width;
 	int height;
 	std::vector<std::vector<int>> tilemap;
+	std::string upMap;
+	std::string leftMap;
+	std::string rightMap;
+	std::string downMap;
 	SDL_Rect position;
 	SDL_Texture* dirt;
 	SDL_Texture* stone;
