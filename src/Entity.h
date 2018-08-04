@@ -12,6 +12,8 @@ public:
 	SDL_Rect& returnPosition() { return this->position; }
 	~Entity();
 protected:
+	float posX;
+	float posY;
 	SDL_Rect position;
 	SDL_Rect cropRect;
 	SDL_Texture *texture;

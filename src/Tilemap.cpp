@@ -1,50 +1,16 @@
 #include "Tilemap.h"
 #include "TextureManager.h"
+#include "Global.h"
 
 Tilemap::Tilemap(const char* filePath) {
-	position = { 0, 0, 48, 48 };
-
-	// for now, file path = SDL-RPG-Game/Levels/start.lvl
-	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt.png");
-	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone/stone.png");
-	this->cobble = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone/cobble.png");
-	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass/grass.png");
-	this->stump = TextureManager::loadTexture("SDL-RPG-Game/assets/tree/stump.png");
-	this->dirt_to_grass_top = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top.png");
-	this->dirt_to_grass_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_right.png");
-	this->dirt_to_grass_down = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down.png");
-	this->dirt_to_grass_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_left.png");
-	this->dirt_to_grass_top_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_left.png");
-	this->dirt_to_grass_top_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_right.png");
-	this->dirt_to_grass_down_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_right.png");
-	this->dirt_to_grass_down_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_left.png");
-	this->hitbox = TextureManager::loadTexture("SDL-RPG-Game/assets/hitbox.png");
-
-	std::ifstream reader(filePath);
-	if (!reader.is_open()) {
-		std::cout << "Couldn't open level at " << filePath << std::endl;
-	}
-	reader >> this->height;
-	reader >> this->width;
-
-	int type;
-	int totalSize = this->height * this->width;
-	for (int i = 0; i < height; i++) {
-		std::vector<int> currentRow;
-		for (int j = 0; j < width; j++) {
-			reader >> type;
-			currentRow.push_back(type);
-		}
-		this->tilemap.push_back(currentRow);
-	}
-	reader.close();
+	this->loadMap(filePath);
 }
 
 void Tilemap::drawMap() {
 	for (int i = 0; i < this->height; i++) {
 		for (int j = 0; j < this->width; j++) {
 			this->position.y = 48 * i;
-			this->position.x = 48 * j;
+			this->position.x = 48 * j - 16;
 			int type = this->tilemap[i][j];
 			if (type == 0) {
 				TextureManager::drawTexture(stone, this->position);
@@ -84,6 +50,9 @@ void Tilemap::drawMap() {
 			else if (type == 19) {
 				TextureManager::drawTexture(dirt_to_grass_down_left, this->position);
       }
+			else if (type == 20) {
+				TextureManager::drawTexture(volcano, this->position);
+      }
 			else if (type == 21) {
 				TextureManager::drawTexture(cobble , this->position);
 			}
@@ -97,7 +66,98 @@ void Tilemap::drawMap() {
 	}
 }
 
+void Tilemap::loadMap(const char * filePath) {
+	this->position = { -16, 0, 48, 48 };
+	this->tilemap.clear();
+	// for now, file path = SDL-RPG-Game/Levels/start.lvl
+	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt.png");
+	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone/stone.png");
+	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass/grass.png");
+	this->stump = TextureManager::loadTexture("SDL-RPG-Game/assets/tree/stump.png");
+	this->dirt_to_grass_top = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top.png");
+	this->dirt_to_grass_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_right.png");
+	this->dirt_to_grass_down = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down.png");
+	this->dirt_to_grass_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_left.png");
+	this->dirt_to_grass_top_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_left.png");
+	this->dirt_to_grass_top_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_right.png");
+	this->dirt_to_grass_down_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_right.png");
+	this->dirt_to_grass_down_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_left.png");
+	this->hitbox = TextureManager::loadTexture("SDL-RPG-Game/assets/hitbox.png");
+
+	std::ifstream reader(filePath);
+	if (!reader.is_open()) {
+		std::cout << "Couldn't open level at " << filePath << std::endl;
+	}
+	reader >> this->height;
+	reader >> this->width;
+	reader >> this->upMap;
+	reader >> this->leftMap;
+	reader >> this->rightMap;
+	reader >> this->downMap;
+
+	if (this->upMap == "none") {
+		std::cout << "no up map" << std::endl;
+		Global::hasUpMap = false;
+	}
+	else {
+		Global::hasUpMap = true;
+	}
+	if (this->leftMap == "none") {
+		std::cout << "no left map" << std::endl;
+		Global::hasLeftMap = false;
+	}
+	else {
+		Global::hasLeftMap = true;
+	}
+	if (this->rightMap == "none") {
+		std::cout << "no right map" << std::endl;
+		Global::hasRightMap = false;
+	}
+	else {
+		Global::hasRightMap = true;
+	}
+	if (this->downMap == "none") {
+		std::cout << "no down map" << std::endl;
+		Global::hasDownMap = false;
+	}
+	else {
+		Global::hasDownMap = true;
+	}
+
+	int type;
+	int totalSize = this->height * this->width;
+	for (int i = 0; i < height; i++) {
+		std::vector<int> currentRow;
+		for (int j = 0; j < width; j++) {
+			reader >> type;
+			currentRow.push_back(type);
+		}
+		this->tilemap.push_back(currentRow);
+	}
+	reader.close();
+}
+
+std::string Tilemap::returnMap(char direction) {
+	switch (direction) {
+		case 'u':
+			return this->upMap;
+			break;
+		case 'l':
+			return this->leftMap;
+			break;
+		case 'r':
+			return this->rightMap;
+			break;
+		case 'd':
+			return this->downMap;
+			break;
+	}
+
+	return std::string();
+}
+
 Tilemap::~Tilemap() {
+	std::cout << "Destroying tilemap" << std::endl;
 	SDL_DestroyTexture(this->dirt);
 	SDL_DestroyTexture(this->grass);
 	SDL_DestroyTexture(this->stone);

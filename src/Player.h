@@ -17,9 +17,11 @@ class Player : public Entity {
 public:
 	Player(const char* filePath);
 	virtual void update();
-	virtual void render();
+	virtual void render() override;
 	void move(Directions direction);
 	void handleInput();
+	void syncPos();
+	void resetDest(float offsetX, float offsetY);
 	~Player();
 	bool isMoving;
 	Directions movingDirection;
@@ -27,6 +29,6 @@ private:
 	int hp;
 	int mana;
 	Sprite sprite;
-	int destX;
-	int destY;
+	float destX;
+	float destY;
 };
