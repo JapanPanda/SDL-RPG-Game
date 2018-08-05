@@ -14,6 +14,7 @@ public:
 	void drawMap();
 	void loadMap(const char* filePath);
 	std::string returnMap(char direction);
+	
 	~Tilemap();
 private:
 	int width;

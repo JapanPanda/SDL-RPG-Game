@@ -49,10 +49,10 @@ void Tilemap::drawMap() {
 			}
 			else if (type == 19) {
 				TextureManager::drawTexture(dirt_to_grass_down_left, this->position);
-      }
+		    }
 			else if (type == 20) {
 				TextureManager::drawTexture(volcano, this->position);
-      }
+		    }
 			else if (type == 21) {
 				TextureManager::drawTexture(cobble , this->position);
 			}
@@ -67,22 +67,24 @@ void Tilemap::drawMap() {
 }
 
 void Tilemap::loadMap(const char * filePath) {
+	std::string assetsDirectory = Global::FILE_DIRECTORY + "/SDL-RPG-Game/assets/";
 	this->position = { -16, 0, 48, 48 };
 	this->tilemap.clear();
 	// for now, file path = SDL-RPG-Game/Levels/start.lvl
-	this->dirt = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt.png");
-	this->stone = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/stone/stone.png");
-	this->grass = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/grass/grass.png");
-	this->stump = TextureManager::loadTexture("SDL-RPG-Game/assets/tree/stump.png");
-	this->dirt_to_grass_top = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top.png");
-	this->dirt_to_grass_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_right.png");
-	this->dirt_to_grass_down = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down.png");
-	this->dirt_to_grass_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_left.png");
-	this->dirt_to_grass_top_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_left.png");
-	this->dirt_to_grass_top_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_top_right.png");
-	this->dirt_to_grass_down_right = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_right.png");
-	this->dirt_to_grass_down_left = TextureManager::loadTexture("SDL-RPG-Game/assets/blocks/dirt/dirt_to_grass_down_left.png");
-	this->hitbox = TextureManager::loadTexture("SDL-RPG-Game/assets/hitbox.png");
+	this->dirt = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt.png");
+	this->stone = TextureManager::loadTexture(assetsDirectory + "blocks/stone/stone.png");
+	this->grass = TextureManager::loadTexture(assetsDirectory + "blocks/grass/grass.png");
+	this->stump = TextureManager::loadTexture(assetsDirectory + "tree/stump.png");
+	this->dirt_to_grass_top = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt_to_grass_top.png");
+	this->dirt_to_grass_right = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt_to_grass_right.png");
+	this->dirt_to_grass_down = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt_to_grass_down.png");
+	this->dirt_to_grass_left = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt_to_grass_left.png");
+	this->dirt_to_grass_top_left = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt_to_grass_top_left.png");
+	this->dirt_to_grass_top_right = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt_to_grass_top_right.png");
+	this->dirt_to_grass_down_right = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt_to_grass_down_right.png");
+	this->dirt_to_grass_down_left = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt_to_grass_down_left.png");
+	this->cobble = TextureManager::loadTexture(assetsDirectory + "assets/blocks/stone/cobble.png");
+	this->hitbox = TextureManager::loadTexture(assetsDirectory + "hitbox.png");
 
 	std::ifstream reader(filePath);
 	if (!reader.is_open()) {
@@ -97,31 +99,31 @@ void Tilemap::loadMap(const char * filePath) {
 
 	if (this->upMap == "none") {
 		std::cout << "no up map" << std::endl;
-		Global::hasUpMap = false;
+		Global::HAS_UP_MAP = false;
 	}
 	else {
-		Global::hasUpMap = true;
+		Global::HAS_UP_MAP = true;
 	}
 	if (this->leftMap == "none") {
 		std::cout << "no left map" << std::endl;
-		Global::hasLeftMap = false;
+		Global::HAS_LEFT_MAP = false;
 	}
 	else {
-		Global::hasLeftMap = true;
+		Global::HAS_LEFT_MAP = true;
 	}
 	if (this->rightMap == "none") {
 		std::cout << "no right map" << std::endl;
-		Global::hasRightMap = false;
+		Global::HAS_RIGHT_MAP = false;
 	}
 	else {
-		Global::hasRightMap = true;
+		Global::HAS_RIGHT_MAP = true;
 	}
 	if (this->downMap == "none") {
 		std::cout << "no down map" << std::endl;
-		Global::hasDownMap = false;
+		Global::HAS_DOWN_MAP = false;
 	}
 	else {
-		Global::hasDownMap = true;
+		Global::HAS_DOWN_MAP = true;
 	}
 
 	int type;

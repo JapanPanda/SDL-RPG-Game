@@ -63,32 +63,32 @@ void Player::render() {
 
 void Player::move(Directions direction) {
 
-	float XVEL_ = 400 * Global::timeElapsed, YVEL_ = 400 * Global::timeElapsed;
+	float XVEL_ = 400 * Global::TIME_ELAPSED, YVEL_ = 400 * Global::TIME_ELAPSED;
 
 	//if (this->destX + 16 < 0 || this->destY + 10 < 0 || this->destX - 16 > 1024 - this->position.w || this->destY > 576 - this->position.h) {
 	//	isMoving = false;
 	//	return;
 	//}
-	if (!Global::hasUpMap) {
+	if (!Global::HAS_UP_MAP) {
 		if (this->destY + 10 < 0) {
 			isMoving = false;
 			return;
 		}
 	}
-	if (!Global::hasLeftMap) {
+	if (!Global::HAS_LEFT_MAP) {
 		if (this->destX + 16 < 0) {
 			isMoving = false;
 			return;
 		}
 	}
-	if (!Global::hasRightMap) {
+	if (!Global::HAS_RIGHT_MAP) {
 		if (this->destX - 16 > 1024 - this->position.w) {
 			isMoving = false;
 			return;
 		}
 
 	}
-	if (!Global::hasDownMap) {
+	if (!Global::HAS_DOWN_MAP) {
 		if (this->destY > 576 - this->position.h) {
 			isMoving = false;
 			return;
@@ -148,13 +148,13 @@ void Player::handleInput() {
 		const Uint8* keyState = SDL_GetKeyboardState(NULL);
 		if (keyState[SDL_SCANCODE_W]) {
 			this->destX = this->posX;
-			this->destY = this->posY - (float) 48.00;
+			this->destY = this->posY - position;
 			//std::cout << "moving to " << this->destX << " : " << this->destY << std::endl;
 			this->move(Up);
 		}
 		else if (keyState[SDL_SCANCODE_S]) {
 			this->destX = this->posX;
-			this->destY = this->posY + (float)48.00;
+			this->destY = this->posY + position;
 			//std::cout << "moving to " << this->destX << " : " << this->destY << std::endl;
 			this->move(Down);
 		}
