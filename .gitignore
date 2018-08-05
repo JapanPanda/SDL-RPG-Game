@@ -334,3 +334,6 @@ ASALocalRun/
 /libwebp-7.dll
 /SDL2_image.dll
 /zlib1.dll
+
+# CMake build directory
+/build
