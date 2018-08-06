@@ -15,6 +15,7 @@ public:
 	void drawMap();
 	void loadMap(const char* filePath);
 	std::string returnMap(char direction);
+	bool validTile(int tileCoordX, int tileCoordY);
 	void parseTiles(std::vector<int> types, int counter);
 	~Tilemap();
 private:

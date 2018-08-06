@@ -1,12 +1,5 @@
 #include "Tiles.h"
 
-// hash function
-//
-//int hash(int posX, int posY) {
-//
-//}
-
-
 Tiles::Tiles(SDL_Rect position) : collidable(true), position(position) {
 	
 }
@@ -30,12 +23,14 @@ bool Tiles::playerHitBorder(const int destX, const int destY) {
 
 Dirt::Dirt(SDL_Rect position) : Tiles(position) {
 	this->type = 1;
+	this->collidable = false;
 }
 
 void Dirt::activate() { }
 
 Stone::Stone(SDL_Rect position) : Tiles(position) {
 	this->type = 0;
+	this->collidable = true;
 }
 
 void Stone::activate() {

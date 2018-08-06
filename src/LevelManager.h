@@ -14,6 +14,7 @@ public:
 	void changeLevel(const char* filePath, std::string levelName);
 	void renderMap();
 	void update(Player* player);
+	Tilemap& getTilemap() { return tilemap; }
 	~LevelManager();
 private:
 	std::string levelName;

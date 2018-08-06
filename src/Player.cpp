@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Game.h"
 #include "Global.h"
-
+#include "Tilemap.h"
 
 Player::Player(const char * filePath) : Entity(filePath), isMoving(false), sprite(texture, 2), hp(100), mana(100), destX(0), destY(0), movingDirection(Stop) {
 
@@ -21,7 +21,7 @@ Player::~Player() {
 	std::cout << "Deleting player now" << std::endl;
 }
 
-void Player::update() {
+void Player::update(Tilemap& tilemap) {
 	if (this->isMoving) {
 		switch (this->movingDirection) {
 			case Up:
@@ -51,7 +51,7 @@ void Player::update() {
 		}
 	}
 	if (this->isMoving) {
-		this->move(this->movingDirection);
+		this->move(this->movingDirection, tilemap);
 	}
 }
 
@@ -61,7 +61,7 @@ void Player::render() {
 
 
 
-void Player::move(Directions direction) {
+void Player::move(Directions direction, Tilemap& tilemap) {
 
 	float XVEL_ = 400 * Global::TIME_ELAPSED, YVEL_ = 400 * Global::TIME_ELAPSED;
 
@@ -94,6 +94,13 @@ void Player::move(Directions direction) {
 			return;
 		}
 
+	}
+	int tileCoordX = ((int)(this->destX + 16)) / 48;
+	int tileCoordY = ((int)(this->destY + 10)) / 48;
+
+	if (!tilemap.validTile(tileCoordX, tileCoordY)) {
+		isMoving = false;
+		return;
 	}
 
 	isMoving = true;
@@ -141,7 +148,7 @@ void Player::move(Directions direction) {
 	/*std::cout << "Player has moved " << direction << std::endl;*/
 }
 
-void Player::handleInput() {
+void Player::handleInput(Tilemap& tilemap) {
 	// Read key states
 	float position = 48.00;
 	if (!this->isMoving) {
@@ -150,27 +157,27 @@ void Player::handleInput() {
 			this->destX = this->posX;
 			this->destY = this->posY - position;
 			//std::cout << "moving to " << this->destX << " : " << this->destY << std::endl;
-			this->move(Up);
+			this->move(Up, tilemap);
 		}
 		else if (keyState[SDL_SCANCODE_S]) {
 			this->destX = this->posX;
 			this->destY = this->posY + position;
 			//std::cout << "moving to " << this->destX << " : " << this->destY << std::endl;
-			this->move(Down);
+			this->move(Down, tilemap);
 		}
 		else if (keyState[SDL_SCANCODE_D]) {
 			//std::cout << "moving from " << this->posX << " : " << this->posY << std::endl;
 			this->destX = this->posX + position;
 			this->destY = this->posY;
 			//std::cout << "moving to " << this->destX << " : " << this->destY << " " << position << std::endl;
-			this->move(Right);
+			this->move(Right, tilemap);
 		}
 		else if (keyState[SDL_SCANCODE_A]) {
 			//std::cout << "moving from " << this->posX << " : " << this->posY << std::endl;
 			this->destX = this->posX - position;
 			this->destY = this->posY;
 			//std::cout << "moving to " << this->destX << " : " << this->destY << " " << position << std::endl;
-			this->move(Left);
+			this->move(Left, tilemap);
 		}
 	}
 }

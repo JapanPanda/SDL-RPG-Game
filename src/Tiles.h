@@ -9,6 +9,7 @@ public:
 	Tiles(SDL_Rect position);
 	virtual void activate() = 0;
 	bool playerHitBorder(const int destX, const int destY);
+	bool isCollidable() { return collidable; }
 	int getType() { return this->type; }
 	~Tiles();
 protected:

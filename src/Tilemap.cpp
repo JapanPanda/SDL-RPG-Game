@@ -67,7 +67,8 @@ void Tilemap::drawMap() {
 }
 
 void Tilemap::loadMap(const char * filePath) {
-	std::string assetsDirectory = Global::FILE_DIRECTORY + "SDL-RPG-Game/assets/";
+	std::string mapFilePath = Global::FILE_DIRECTORY + filePath;
+	std::string assetsDirectory = Global::FILE_DIRECTORY + "/assets/";
 	this->position = { -16, 0, 48, 48 };
 	this->tilemap.clear();
 	// for now, file path = SDL-RPG-Game/Levels/start.lvl
@@ -87,7 +88,7 @@ void Tilemap::loadMap(const char * filePath) {
 	this->cobble = TextureManager::loadTexture(assetsDirectory + "assets/blocks/stone/cobble.png");
 	this->hitbox = TextureManager::loadTexture(assetsDirectory + "hitbox.png");
 
-	std::ifstream reader(filePath);
+	std::ifstream reader(mapFilePath.c_str());
 	if (!reader.is_open()) {
 		std::cout << "Couldn't open level at " << filePath << std::endl;
 	}
@@ -184,6 +185,11 @@ std::string Tilemap::returnMap(char direction) {
 	}
 
 	return std::string();
+}
+
+bool Tilemap::validTile(int tileCoordX, int tileCoordY) {
+	Tiles* tile = this->tilemap[tileCoordY][tileCoordX];
+	return tile->isCollidable();
 }
 
 Tilemap::~Tilemap() {

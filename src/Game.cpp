@@ -23,9 +23,10 @@ Game::Game() {
 		this->window = SDL_CreateWindow("RPG Development", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Global::SCREEN_WIDTH, Global::SCREEN_HEIGHT, 0);
 		this->renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+		
 		// May have to change this depending on your project layout
-		player = new Player("SDL-RPG-Game/assets/playerspritesheet.png");
-		level = new LevelManager("SDL-RPG-Game/maps/start.lvl", "start");
+		player = new Player("/assets/playerspritesheet.png");
+		level = new LevelManager("/maps/start.lvl", "start");
 		this->isRunning = true;
 	}
 }
@@ -45,12 +46,12 @@ void Game::processEvents() {
 	}
 
 	// Handle input
-	player->handleInput();
+	player->handleInput(level->getTilemap());
 	
 }
 
 void Game::updateGame() {
-	player->update();
+	player->update(level->getTilemap());
 	level->update(player);
 }
 

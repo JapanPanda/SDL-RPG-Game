@@ -5,6 +5,8 @@
 #include "Entity.h"
 #include "Sprite.h"
 
+class Tilemap;
+
 class Game;
 
 enum Directions {
@@ -16,10 +18,10 @@ class Player : public Entity {
 	friend Game;
 public:
 	Player(const char* filePath);
-	virtual void update();
+	virtual void update(Tilemap& tilemap);
 	virtual void render() override;
-	void move(Directions direction);
-	void handleInput();
+	void move(Directions direction, Tilemap& tilemap);
+	void handleInput(Tilemap& tilemap);
 	void syncPos();
 	void resetDest(float offsetX, float offsetY);
 	~Player();
