@@ -29,7 +29,15 @@ bool Tiles::playerHitBorder(const int destX, const int destY) {
 }
 
 Dirt::Dirt(SDL_Rect position) : Tiles(position) {
-
+	this->type = 1;
 }
 
 void Dirt::activate() { }
+
+Stone::Stone(SDL_Rect position) : Tiles(position) {
+	this->type = 0;
+}
+
+void Stone::activate() {
+
+}

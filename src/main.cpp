@@ -12,8 +12,9 @@ std::string returnBaseDirectory(const char* exeLocation) {
 	std::string directoryString;
 	bool foundBaseDirectory = false;
 	int offset = tempString.length();
-	while (!foundBaseDirectory) {
-		std::string subDirectory;
+	std::string subDirectory;
+	while (subDirectory.length() != 0) {
+		subDirectory.clear();
 		int index = tempString.find_last_of('\\', offset);
 		int secondIndex = tempString.find_last_of('\\', index - 1);
 		for (int i = secondIndex; i <= index; i++) {

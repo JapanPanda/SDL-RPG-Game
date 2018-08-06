@@ -11,7 +11,7 @@ void Tilemap::drawMap() {
 		for (int j = 0; j < this->width; j++) {
 			this->position.y = 48 * i;
 			this->position.x = 48 * j - 16;
-			int type = this->tilemap[i][j];
+			int type = this->tilemap[i][j]->getType();
 			if (type == 0) {
 				TextureManager::drawTexture(stone, this->position);
 				/*std::cout << "Drawing stone at " << this->position.x << " " << this->position.y << std::endl;*/
@@ -67,11 +67,12 @@ void Tilemap::drawMap() {
 }
 
 void Tilemap::loadMap(const char * filePath) {
-	std::string assetsDirectory = Global::FILE_DIRECTORY + "/SDL-RPG-Game/assets/";
+	std::string assetsDirectory = Global::FILE_DIRECTORY + "SDL-RPG-Game/assets/";
 	this->position = { -16, 0, 48, 48 };
 	this->tilemap.clear();
 	// for now, file path = SDL-RPG-Game/Levels/start.lvl
 	this->dirt = TextureManager::loadTexture(assetsDirectory + "blocks/dirt/dirt.png");
+	std::cout << assetsDirectory + "blocks/dirt/dirt.png" << std::endl;
 	this->stone = TextureManager::loadTexture(assetsDirectory + "blocks/stone/stone.png");
 	this->grass = TextureManager::loadTexture(assetsDirectory + "blocks/grass/grass.png");
 	this->stump = TextureManager::loadTexture(assetsDirectory + "tree/stump.png");
@@ -134,10 +135,37 @@ void Tilemap::loadMap(const char * filePath) {
 			reader >> type;
 			currentRow.push_back(type);
 		}
-		this->tilemap.push_back(currentRow);
+		parseTiles(currentRow, i);
 	}
 	reader.close();
 }
+
+void Tilemap::parseTiles(std::vector<int> types, int counter) {
+	std::vector<Tiles*> tileRow;
+	Tiles* tilePtr;
+	for (unsigned int i = 0; i < types.size(); i++) {
+		SDL_Rect position = { i * 48 - 16, counter * 48, 48, 48 };
+		switch (types[i]) {
+			case 0:
+				std::cout << "Stone detected" << std::endl;
+				tilePtr = new Stone(position);
+				tileRow.push_back(tilePtr);
+				break;
+
+			case 1:
+				std::cout << "Dirt detected" << std::endl;
+				tilePtr = new Dirt(position);
+				tileRow.push_back(tilePtr);
+				break;
+
+			default:
+				std::cout << "Invalid type of tile detected: " << types[i];
+
+		}
+	}
+	this->tilemap.push_back(tileRow);
+}
+
 
 std::string Tilemap::returnMap(char direction) {
 	switch (direction) {
