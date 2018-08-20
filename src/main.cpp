@@ -62,7 +62,6 @@ int main(int argc, char* argv[]) {
 		game->processEvents();
 		game->updateGame();
 		game->renderGame();
-		// std::cout << Global::timeElapsed << std::endl;
 
 		frameDiff = SDL_GetTicks() - frameStart;
 		if (FRAME_DELAY > frameDiff) {
