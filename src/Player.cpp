@@ -3,11 +3,13 @@
 #include "Game.h"
 #include "Global.h"
 #include "Tilemap.h"
+#include "Projectile.h"
 
-Player::Player(const char * filePath) : Entity(filePath), isMoving(false), sprite(texture, 2), hp(100), mana(100), destX(0), destY(0), movingDirection(Stop) {
+Player::Player(const char * filePath) : Entity(filePath), isMoving(false), sprite(texture, 2), hp(100), mana(100), 
+										destX(0), destY(0), movingDirection(Stop), keepTrackTime(false), firstShot(true), timeTracker(0) {
 
 	// Create position at center of screen
-
+	this->projectileCoolDown = 0;
 	this->position.x = 480.00 - 16.00;
 	this->position.y = 240.00 - 10.00;
 	this->position.w = 48;
@@ -53,10 +55,16 @@ void Player::update(Tilemap& tilemap) {
 	if (this->isMoving) {
 		this->move(this->movingDirection, tilemap);
 	}
+	for (int i = 0; i < this->projectiles.size(); i++) {
+		this->projectiles[i].update(tilemap, *this);
+	}
 }
 
 void Player::render() {
 	this->sprite.animateSprite(this->position);
+	for (int i = 0; i < this->projectiles.size(); i++) {
+		this->projectiles[i].render();
+	}
 }
 
 
@@ -69,6 +77,7 @@ void Player::move(Directions direction, Tilemap& tilemap) {
 	//	isMoving = false;
 	//	return;
 	//}
+
 	if (!Global::HAS_UP_MAP) {
 		if (this->destY + 10 < 0) {
 			isMoving = false;
@@ -179,6 +188,23 @@ void Player::handleInput(Tilemap& tilemap) {
 			//std::cout << "moving to " << this->destX << " : " << this->destY << " " << position << std::endl;
 			this->move(Left, tilemap);
 		}
+		else if (keyState[SDL_SCANCODE_SPACE]) {
+			this->projectileCoolDown = SDL_GetTicks();
+			if (!keepTrackTime) {
+				timeTracker = this->projectileCoolDown;
+				keepTrackTime = true;
+			}
+			if (projectileCoolDown - timeTracker >= 1000 || firstShot) {
+				firstShot = false;
+				std::string filePath = "/assets/bullet.png";
+				std::cout << "Shooting projectile at " << this->posX << ":" << this->posY << std::endl;
+				this->projectiles.emplace_back(filePath.c_str(), this->posX + 8, this->posY + 10, Down);
+				keepTrackTime = false;
+			}
+			else {
+				std::cout << "Projectile is on cooldown, time passed is " << this->projectileCoolDown - timeTracker << std::endl;
+			}
+		}
 	}
 }
 
@@ -190,4 +216,8 @@ void Player::syncPos() {
 void Player::resetDest(float offsetX, float offsetY) {
 	this->destX = offsetX;
 	this->destY = offsetY;
+}
+
+void Player::destroyProjectile(int vectorPos) {
+	this->projectiles.erase(this->projectiles.begin() + vectorPos);
 }

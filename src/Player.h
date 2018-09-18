@@ -8,6 +8,7 @@
 class Tilemap;
 
 class Game;
+class Projectile;
 
 enum Directions {
 	Up, Down, Left, Right, Stop
@@ -24,7 +25,9 @@ public:
 	void handleInput(Tilemap& tilemap);
 	void syncPos();
 	void resetDest(float offsetX, float offsetY);
+	void destroyProjectile(int vectorPos);
 	~Player();
+
 	bool isMoving;
 	Directions movingDirection;
 private:
@@ -33,4 +36,9 @@ private:
 	Sprite sprite;
 	float destX;
 	float destY;
+	Uint32 projectileCoolDown;
+	std::vector<Projectile> projectiles;
+	bool keepTrackTime;
+	bool firstShot;
+	Uint32 timeTracker;
 };

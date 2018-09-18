@@ -12,6 +12,7 @@ public:
 	static double TEXTURE_SCALE;
 	static int SCREEN_WIDTH;
 	static int SCREEN_HEIGHT;
+	static int PROJECTILE_SPEED;
 	static bool HAS_UP_MAP;
 	static bool HAS_LEFT_MAP;
 	static bool HAS_RIGHT_MAP;
