@@ -10,6 +10,14 @@ SDL_Texture* TextureManager::loadTexture(const char *filePath) {
 	return texture;
 }
 
+SDL_Texture * TextureManager::loadTexture(const std::string filePath)
+{
+	SDL_Surface *tmpSurface = IMG_Load(filePath.c_str());
+	SDL_Texture *texture = SDL_CreateTextureFromSurface(Game::renderer, tmpSurface);
+	SDL_FreeSurface(tmpSurface);
+	return texture;
+}
+
 void TextureManager::drawTexture(SDL_Texture* texture, SDL_Rect crop, SDL_Rect position) {
 	SDL_RenderCopy(Game::renderer, texture, &crop, &position);
 }

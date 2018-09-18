@@ -335,5 +335,7 @@ ASALocalRun/
 /SDL2_image.dll
 /zlib1.dll
 
-# CMake build directory
-/build
+*.sln
+*.vcxproj
+*.filters
+*.dll

@@ -1,8 +1,10 @@
 #include "Entity.h"
 #include "TextureManager.h"
+#include "Global.h"
 
 Entity::Entity(const char* filePath) {
-	this->texture = TextureManager::loadTexture(filePath);
+	std::string newFilePath = Global::FILE_DIRECTORY + filePath;
+	this->texture = TextureManager::loadTexture(newFilePath);
 }
 
 Entity::~Entity() {
