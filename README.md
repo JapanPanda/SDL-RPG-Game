@@ -6,6 +6,8 @@ Developers - JapanPanda
 
 Artists - aechu bha3 XRayXD
 
+Makefile - Technius
+
 # Currently working on
 - Properly implementing tile properties
 
@@ -14,7 +16,7 @@ Install SDL (google it, it depends on your IDE and Operating System)
 
 If windows, make sure you move the .dlls to the directory with the .sln
 
-If linux, good luck making a cmake for SDL
+If linux, use the included Makefile (Thanks to Technius)
 
 # What I'm using: Visual Studio 2017 
 With this tutorial
