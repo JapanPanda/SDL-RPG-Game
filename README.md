@@ -9,11 +9,11 @@ Artists - aechu bha3 XRayXD
 Makefile - Technius
 
 # Preview
-Tilemapping and tile collision: ![Unable to load image, please contact JapanPanda](https://i.imgur.com/ILEcLxL.gifv)
+Tilemapping and tile collision: ![Unable to load image, please contact JapanPanda](https://i.imgur.com/ILEcLxL.gif)
 
-Projectiles (WIP): ![Unable to load image, please contact JapanPanda](https://i.imgur.com/Kiydgrp.gifv)
+Projectiles (WIP): ![Unable to load image, please contact JapanPanda](https://i.imgur.com/Kiydgrp.gif)
 
-Level Changing: ![Unable to load image, please contact JapanPanda](https://i.imgur.com/XlaQL5c.gifv)
+Level Changing: ![Unable to load image, please contact JapanPanda](https://i.imgur.com/XlaQL5c.gif)
 
 # Currently working on
 - Properly implementing tile properties for ALL tiles
