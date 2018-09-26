@@ -9,9 +9,11 @@ Artists - aechu bha3 XRayXD
 Makefile - Technius
 
 # Preview
-Tilemapping and tile collision: https://i.imgur.com/ILEcLxL.gifv
-Projectiles (WIP): https://i.imgur.com/Kiydgrp.gifv
-Level Changing: https://i.imgur.com/XlaQL5c.gifv
+Tilemapping and tile collision: ![Unable to load image, please contact JapanPanda](https://i.imgur.com/ILEcLxL.gifv)
+
+Projectiles (WIP): ![Unable to load image, please contact JapanPanda](https://i.imgur.com/Kiydgrp.gifv)
+
+Level Changing: ![Unable to load image, please contact JapanPanda](https://i.imgur.com/XlaQL5c.gifv)
 
 # Currently working on
 - Properly implementing tile properties for ALL tiles
