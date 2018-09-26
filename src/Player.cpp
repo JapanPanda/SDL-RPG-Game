@@ -106,6 +106,18 @@ void Player::move(Directions direction, Tilemap& tilemap) {
 	}
 	int tileCoordX = ((int)(this->destX + 16)) / 48;
 	int tileCoordY = ((int)(this->destY + 10)) / 48;
+	if (tileCoordX < 0) {
+		tileCoordX = 0;
+	}
+	if (tileCoordX > 21) {
+		tileCoordX = 21;
+	}
+	if (tileCoordY < 0) {
+		tileCoordY = 0;
+	}
+	if (tileCoordY > 11) {
+		tileCoordY = 11;
+	}
 
 	if (!tilemap.validTile(tileCoordX, tileCoordY)) {
 		isMoving = false;
