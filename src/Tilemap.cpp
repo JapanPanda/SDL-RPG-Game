@@ -148,13 +148,13 @@ void Tilemap::parseTiles(std::vector<int> types, int counter) {
 		SDL_Rect position = { i * 48 - 16, counter * 48, 48, 48 };
 		switch (types[i]) {
 			case 0:
-				std::cout << "Stone detected" << std::endl;
+				//std::cout << "Stone detected" << std::endl;
 				tilePtr = new Stone(position);
 				tileRow.push_back(tilePtr);
 				break;
 
 			case 1:
-				std::cout << "Dirt detected" << std::endl;
+				//std::cout << "Dirt detected" << std::endl;
 				tilePtr = new Dirt(position);
 				tileRow.push_back(tilePtr);
 				break;

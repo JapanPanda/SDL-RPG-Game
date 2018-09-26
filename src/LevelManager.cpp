@@ -17,7 +17,7 @@ void LevelManager::renderMap() {
 }
 
 void LevelManager::update(Player* player) {
-	std::string fileDirectory = "SDL-RPG-Game/maps/";
+	std::string fileDirectory = "/maps/";
 	if (player->isMoving) {
 		return;
 	}
