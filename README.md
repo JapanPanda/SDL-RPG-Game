@@ -8,8 +8,13 @@ Artists - aechu bha3 XRayXD
 
 Makefile - Technius
 
+# Preview
+Tilemapping and tile collision: https://i.imgur.com/ILEcLxL.gifv
+Projectiles (WIP): https://i.imgur.com/Kiydgrp.gifv
+Level Changing: https://i.imgur.com/XlaQL5c.gifv
+
 # Currently working on
-- Properly implementing tile properties
+- Properly implementing tile properties for ALL tiles
 
 # How to compile
 Install SDL (google it, it depends on your IDE and Operating System)
