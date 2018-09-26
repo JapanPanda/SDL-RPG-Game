@@ -9,6 +9,8 @@ Artists - aechu bha3 XRayXD
 Makefile - Technius
 
 # Preview
+(Note: the gif's are choppy but the game runs at 60 fps on a virtually every machine)
+
 Tilemapping and tile collision: ![Unable to load image, please contact JapanPanda](https://i.imgur.com/ILEcLxL.gif)
 
 Projectiles (WIP): ![Unable to load image, please contact JapanPanda](https://i.imgur.com/Kiydgrp.gif)
