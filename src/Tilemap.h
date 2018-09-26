@@ -6,6 +6,7 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_image.h>
+#include "Tiles.h"
 
 
 class Tilemap {
@@ -14,11 +15,13 @@ public:
 	void drawMap();
 	void loadMap(const char* filePath);
 	std::string returnMap(char direction);
+	bool validTile(int tileCoordX, int tileCoordY);
+	void parseTiles(std::vector<int> types, int counter);
 	~Tilemap();
 private:
 	int width;
 	int height;
-	std::vector<std::vector<int>> tilemap;
+	std::vector<std::vector<Tiles*>> tilemap;
 	std::string upMap;
 	std::string leftMap;
 	std::string rightMap;

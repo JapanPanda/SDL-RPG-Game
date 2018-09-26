@@ -6,15 +6,26 @@ Developers - JapanPanda
 
 Artists - aechu bha3 XRayXD
 
+Makefile - Technius
+
+# Preview
+(Note: the gif's are choppy but the game runs at 60 fps on a virtually every machine)
+
+Tilemapping and tile collision: ![Unable to load image, please contact JapanPanda](https://i.imgur.com/ILEcLxL.gif)
+
+Projectiles (WIP): ![Unable to load image, please contact JapanPanda](https://i.imgur.com/Kiydgrp.gif)
+
+Level Changing: ![Unable to load image, please contact JapanPanda](https://i.imgur.com/XlaQL5c.gif)
+
 # Currently working on
-- Properly implementing tile properties
+- Properly implementing tile properties for ALL tiles
 
 # How to compile
 Install SDL (google it, it depends on your IDE and Operating System)
 
 If windows, make sure you move the .dlls to the directory with the .sln
 
-If linux, good luck making a cmake for SDL
+If linux, use the included Makefile (Thanks to Technius)
 
 # What I'm using: Visual Studio 2017 
 With this tutorial

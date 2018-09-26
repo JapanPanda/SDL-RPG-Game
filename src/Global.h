@@ -8,13 +8,15 @@ class Global {
 public:
 	Global(const double textureScale, const int screenWidth, const int screenHeight);
 	~Global();
-	static float timeElapsed;
+	static float TIME_ELAPSED;
 	static double TEXTURE_SCALE;
 	static int SCREEN_WIDTH;
 	static int SCREEN_HEIGHT;
-	static bool hasUpMap;
-	static bool hasLeftMap;
-	static bool hasRightMap;
-	static bool hasDownMap;
+	static int PROJECTILE_SPEED;
+	static bool HAS_UP_MAP;
+	static bool HAS_LEFT_MAP;
+	static bool HAS_RIGHT_MAP;
+	static bool HAS_DOWN_MAP;
+	static std::string FILE_DIRECTORY;
 };
 

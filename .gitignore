@@ -336,8 +336,7 @@ ASALocalRun/
 /zlib1.dll
 
 # CMake build directory
-/build
-/SDL-RPG-Game.sln
-/SDL-RPG-Game.vcxproj
-/SDL2.dll
-/SDL-RPG-Game.vcxproj.filters
+*.sln
+*.vcxproj
+*.filters
+*.dll
