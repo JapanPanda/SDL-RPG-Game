@@ -4,7 +4,7 @@ SDL Game
 # Contributors
 Developers - JapanPanda
 
-Artists - aechu bha3 XRayXD
+Artists - aechu bha3 XRayXD Minhs2
 
 Makefile - Technius
 
