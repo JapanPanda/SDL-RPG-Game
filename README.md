@@ -1,5 +1,14 @@
-# SDL-RPG-Game
-SDL Game
+# SDL-RPG-Game (DEPRECATED)
+SDL Game (DEPRECATED)
+
+# Why Deprecate?
+This was supposed to be a fun summer project, but as I got further and further into developing the game engine, it became increasingly difficult and I realised the scale of what I was trying to do to. As summer ended, I realised that if I were to ever finish this project, it would take an absurd amount of time and dedication, both of which could be given to my studies instead.
+
+# What Did I Learn?
+* Make sure you understand the scale and difficulty of the project beforehand.
+* Object-Oriented Programming can become quickly convuluted, and it is incredibly useful to plan the file and class structure before starting the project
+* Developing a game engine from a low level library by oneself is extremely time consuming
+
 
 # Contributors
 Developers - JapanPanda
